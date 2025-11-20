@@ -3,9 +3,14 @@
 > vite
 
 
-  VITE v5.4.20  ready in 443 ms
+  VITE v5.4.20  ready in 542 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.5.56:3000/
-5:31:42 PM [vite] ✨ new dependencies optimized: lucide-react
-5:31:42 PM [vite] ✨ optimized dependencies changed. reloading
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  @layer base {
