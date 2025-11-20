@@ -1,8 +1,10 @@
-export default function Content({ explanation, practice }) {
+import { t } from '../lib/i18n'
+
+export default function Content({ explanation, practice, lang }) {
   return (
     <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div className="bg-slate-800/50 border border-blue-400/20 rounded-2xl p-5">
-        <h3 className="text-white font-semibold text-lg mb-2">Concept</h3>
+        <h3 className="text-white font-semibold text-lg mb-2">{t(lang,'concept')}</h3>
         {explanation ? (
           <div className="text-blue-100">
             <h4 className="text-xl font-bold mb-2 font-handwriting">{explanation.title}</h4>
@@ -22,18 +24,18 @@ export default function Content({ explanation, practice }) {
             )}
           </div>
         ) : (
-          <p className="text-blue-300/70">Select a topic and click Explain to see an overview.</p>
+          <p className="text-blue-300/70">Select a topic and click {t(lang,'explain')} to see an overview.</p>
         )}
       </div>
       <div className="bg-slate-800/50 border border-blue-400/20 rounded-2xl p-5">
-        <h3 className="text-white font-semibold text-lg mb-2">Practice</h3>
+        <h3 className="text-white font-semibold text-lg mb-2">{t(lang,'practiceTitle')}</h3>
         {practice?.problems?.length ? (
           <div className="space-y-4">
             {practice.problems.map((p)=> (
               <div key={p.id} className="bg-slate-900/60 border border-slate-700 rounded-xl p-4">
                 <div className="text-blue-100 font-medium font-handwriting text-lg">{p.question}</div>
                 <details className="mt-2 group">
-                  <summary className="cursor-pointer text-blue-300 hover:text-white transition-colors">Show answer & steps</summary>
+                  <summary className="cursor-pointer text-blue-300 hover:text-white transition-colors">{t(lang,'showAnswer')}</summary>
                   <div className="mt-2 text-sm text-blue-200/90">
                     <div className="font-semibold">Answer: <span className="font-mono">{Array.isArray(p.answer) ? JSON.stringify(p.answer) : String(p.answer)}</span></div>
                     <ul className="list-decimal list-inside mt-2 space-y-1 font-handwriting text-base">
@@ -45,7 +47,7 @@ export default function Content({ explanation, practice }) {
             ))}
           </div>
         ) : (
-          <p className="text-blue-300/70">Click Practice to generate problems with step‑by‑step solutions.</p>
+          <p className="text-blue-300/70">Click {t(lang,'practice')} to generate problems with step‑by‑step solutions.</p>
         )}
       </div>
     </div>
